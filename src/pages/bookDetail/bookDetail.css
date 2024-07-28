@@ -1,0 +1,53 @@
+.bookDetail{
+    margin: 100px;
+    margin-left: 350px;
+}
+.dataName{
+    font-weight: 500;
+    color: blue;
+    font-size: 30px;
+    text-align: center;
+
+}
+.dataImg{
+   height: 300px;
+   width: 300px;
+   object-fit: cover;
+   margin-left: 380px;
+}
+.dataDetails{
+margin-left: 450px;
+}
+.dataIsbn{
+    margin-left: 450px;
+
+}
+.dataPrice{
+margin-left: 450px;
+
+
+}
+.dataOwner{
+    margin-left: 450px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.qty-input-name{
+    margin-left: 400px;
+    color: blue;
+
+}
+.qty-input{
+    margin-left: 370px;
+    border-radius: 10px;
+    border: 1px solid red;
+    width: 300px;
+}
+.buy-button{
+    margin-left: 460px;
+    width: 100px;
+    background: green;
+    border-radius: 10px;
+}

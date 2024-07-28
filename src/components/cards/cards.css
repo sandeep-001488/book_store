@@ -1,0 +1,71 @@
+
+.book {
+    position: relative;
+    border: 1px solid #ccc; /* Border style */
+    width: 250px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 10px 10px 30px 5px rgb(200, 200, 201); /* Shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+  }
+  
+  .book:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+  }
+  
+  /* Book Image */
+  .book-image {
+    width: 100%; /* Full width of the container */
+    height: 180px; /* Fixed height */
+    border-radius: 20px;
+    object-fit: cover; /* Cover the container, maintain aspect ratio */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .book-image:hover {
+    transform: scale(1.03); /* Zoom effect on hover */
+    box-shadow: 0px 0px 15px rgba(11, 8, 147, 0.6); /* Shadow on hover */
+  }
+  
+  /* Book Name */
+  .book-name {
+    font-size: 18px; /* Adjust font size */
+    font-weight: 700;
+    color: rgb(235, 247, 19);
+    margin: 10px;
+    text-align: center;
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  }
+  
+  /* ISBN Number */
+  .book-isbn {
+    position: absolute;
+    color: white;
+    bottom: 70px; /* Adjust positioning */
+    right: 10px; /* Adjust positioning */
+    font-size: 14px; /* Font size */
+  }
+  .book-isbn-no{
+    color: rgb(160, 4, 4);
+  }
+  /* Book Price */
+  .book-price {
+    color: white;
+    border: 1px solid gray;
+    background-color: rgb(73, 1, 97);
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px; /* Add padding */
+    font-size: 16px; /* Font size */
+    
+    bottom: 40px; /* Position above ISBN */
+    left: 50%; /* Center horizontally */
+   
+  }
+  

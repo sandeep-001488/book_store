@@ -1,0 +1,31 @@
+.message{
+ margin: 200px;
+}
+.title{
+    font-style: italic;
+    font-size: 30px;
+}
+.response{
+    font-size: 20px;
+    color: blue;
+}
+.order-again{
+    background: green;
+    color: white;
+    border-radius: 10px;
+
+}
+.order-again:hover{
+    background: red;
+    border-radius: 20px;
+}
+.view-order-btn{
+    background: rgb(139, 3, 3);
+    color: white;
+    border-radius: 10px;
+
+}
+.view-order-btn:hover{
+    background: green;
+    border-radius: 20px;
+}

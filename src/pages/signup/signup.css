@@ -1,0 +1,138 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 30px;
+}
+
+.signup-box {
+    margin: 100px;
+    margin-left: 100px;
+    height: 450px;
+    width: 300px;
+    background-color: #efefef;
+    border: 1px solid gray;
+  
+    box-shadow: 1px 2px 8px;
+  }
+  .form-container {
+    margin: 0px;
+    margin-left: -50px;
+  }
+
+  
+ 
+  .email-name {
+    margin-left: 40px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color:red;
+  }
+  
+ 
+  .password-name {
+    margin-left: 60px;
+    margin-bottom: 10px;
+    font-weight: 500;
+
+    color:red;
+
+  }
+  
+  button {
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 100px;
+  }
+  
+  .signup {
+    transition: opacity 0.3s ease;
+  }
+  p {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    color: red;
+    margin-left: 105px;
+    margin-top: 10px;
+  }
+  
+  
+ 
+  
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+    color: black;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  .form-signup-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #343a40;
+    margin-left: 0px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #495057;
+  }
+  
+  
+  .no-account{
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    color: red;
+    margin-left: 70px;
+    margin-top: 10px;
+  }
+ 
+  .link-signup {
+    position: absolute;
+    margin-left: 110px;
+    top: 480px;
+    text-decoration: none;
+  }
+  .link-signup:hover{
+    color: blue;
+  }
+  .google-signup-btn{
+    background-color: blueviolet;
+    color: white;
+    border-radius: 10px;
+    margin-left: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .google-signup-btn:hover{
+    border-radius: 20px;
+  }
+  .google-signup-btn:focus{
+    outline: none;
+  }

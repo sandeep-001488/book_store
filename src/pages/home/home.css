@@ -1,0 +1,35 @@
+.logout-message{
+    margin-top: 200px;
+    font-style: italic;
+    font-size: 40px;
+    margin-left: 300px;
+
+}
+.home {
+    font-family: Arial, sans-serif;
+    
+    width: 100vw;
+    height: calc(100% - 60px);
+    background-image: url('/library.jpg');
+    margin-top: 60px;
+    background-size: cover;
+  }
+  h1{
+    text-align: center;
+    color: white;
+  }
+  .book-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw - 10px);
+    column-gap: 30px;
+    row-gap: 10px;
+    margin-top: 10px;
+
+    
+  }
+  
+  /* Book Container */
+  

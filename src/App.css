@@ -1,0 +1,7 @@
+.App {
+  height: 100%;
+}
+.sections {
+  height: calc(100% - 60px);
+  overflow:hidden;
+}
