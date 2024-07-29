@@ -1,9 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { visualizer } from 'rollup-plugin-visualizer';
 
-// https://vitejs.dev/config/
+// Configure Vite with the plugin
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    visualizer({
+      open: true, // Automatically open the report in the browser
+      gzipSize: true, // Show the gzip size
+      brotliSize: true // Show the Brotli size
+    })
+  ],
   build: {
     rollupOptions: {
       output: {
@@ -11,6 +19,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom'] // Example of code-splitting
         }
       }
-    }
+    },
+    chunkSizeWarningLimit: 1000
   }
-})
+});
