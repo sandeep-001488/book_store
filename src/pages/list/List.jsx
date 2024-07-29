@@ -47,7 +47,7 @@ function List() {
     <div className="list-container">
       <div className="list-box">
         <div className="form-wrapper">
-          <h1 className="form-title">List</h1>
+          <h1 className="form-title">Book Details...</h1>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="booklist" className="form-label">
@@ -109,7 +109,7 @@ function List() {
               />
             </div>
             <button type="submit" className="submit-button">
-              List
+              Confirrm Listing
             </button>
           </form>
         </div>

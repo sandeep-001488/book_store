@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     column-gap: 16px;
     position: relative;
+    background: rgb(255, 253, 253);
 }
 .qty{
     font-size: 20px;
@@ -12,5 +13,5 @@
      margin-left: 30px;
 }
 .qty-color{
-    color: rgb(35, 0, 52);
+    color: rgb(25, 48, 26);
 }

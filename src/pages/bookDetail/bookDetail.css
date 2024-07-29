@@ -1,53 +1,84 @@
-.bookDetail{
-    margin: 100px;
-    margin-left: 350px;
+.bookDetail {
+  margin: 100px;
+  margin-left: 30px;
 }
-.dataName{
-    font-weight: 500;
-    color: blue;
-    font-size: 30px;
-    text-align: center;
+.bookDetailWrapper {
+  /* background: red; */
+  position: relative;
+}
+.dataName {
+  font-weight: 500;
+  color: blue;
+  margin-left: 0px;
+  font-size: 50px;
+  text-align: center;
+}
+.book-and-img {
+  display: flex;
+  margin-left: 100px;
+}
+.dataImg {
+  height: 200px;
+  width: 200px;
+  background: rgb(241, 238, 238);
+  object-fit: contain;
+  border-radius: 30px;
+  margin-left: 380px;
+}
+.book-details{
+    margin-top: 50px;
+    margin-left: 25px;
+}
+
+.dataDetails {
+  margin-left: 40px;
+  font-size: 40px;
+  position: absolute;
+  top: 70px;
+}
+.dataIsbn {
+  color: red;
+  font-size: 20px;
+}
+.dataPrice {
+  color: red;
+  font-size: 20px;
+
 
 }
-.dataImg{
-   height: 300px;
-   width: 300px;
-   object-fit: cover;
-   margin-left: 380px;
-}
-.dataDetails{
-margin-left: 450px;
-}
-.dataIsbn{
-    margin-left: 450px;
-
-}
-.dataPrice{
-margin-left: 450px;
+.dataOwner {
+  color: red;
+  font-size: 20px;
 
 
 }
-.dataOwner{
-    margin-left: 450px;
+form {
+  display: flex;
+  flex-direction: column;
 }
-form{
-    display: flex;
-    flex-direction: column;
+.qty-input-name {
+  margin-left: 550px;
+  margin-top: 20px;
+  color: blue;
+  font-style: italic;
+  font-size: 25px;
 }
-.qty-input-name{
-    margin-left: 400px;
-    color: blue;
-
+.qty-input {
+  margin-left: 550px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid red;
+  width: 300px;
 }
-.qty-input{
-    margin-left: 370px;
-    border-radius: 10px;
-    border: 1px solid red;
-    width: 300px;
+.buy-button {
+  margin-left: 660px;
+  width: 100px;
+  margin-top: 10px;
+  background: green;
+  color: bisque;
+  border-radius: 10px;
 }
-.buy-button{
-    margin-left: 460px;
-    width: 100px;
-    background: green;
-    border-radius: 10px;
+.buy-button:hover{
+    background: yellow;
+    color: red;
 }

@@ -13,7 +13,7 @@ const List = React.lazy(() => import('./pages/list/List'));
 const BookDetail = React.lazy(() => import('./pages/bookDetail/BookDetail'));
 const Message = React.lazy(() => import('./pages/message/Message'));
 const ViewOrders = React.lazy(() => import('./pages/viewOrders/ViewOrders'));
-
+const SetPasswordForGoogle=React.lazy(()=>import('./pages/setPasswordForGoogleLogin/SetPasswordForGoogleLogin'))
 function App() {
   return (
     <BrowserRouter>
@@ -29,6 +29,7 @@ function App() {
               <Route path="/book/view/:bookId" element={<BookDetail />} />
               <Route path="/:customerName/greetings" element={<Message />} />
               <Route path="/book/orders" element={<ViewOrders />} />
+              <Route path="/google/set-password" element={<SetPasswordForGoogle />} />
             </Routes>
           </Suspense>
         </div>

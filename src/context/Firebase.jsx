@@ -1,12 +1,15 @@
 import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
+  EmailAuthProvider,
   fetchSignInMethodsForEmail,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  reauthenticateWithCredential,
   signInWithEmailAndPassword,
   signInWithPopup,
+  updatePassword,
 } from "firebase/auth";
 import {
   Firestore,
@@ -22,6 +25,7 @@ import {
 import { getDatabase } from "firebase/database";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { sendPasswordResetEmail as firebaseSendPasswordResetEmail } from "firebase/auth";
 // import { useNavigate } from "react-router-dom";
 
 const FirebaseContext = createContext(null);
@@ -46,6 +50,19 @@ const googleProvider = new GoogleAuthProvider();
 export const FirebaseProvider = (props) => {
   const [user, setUser] = useState(null);
   // const navigate=useNavigate()
+  useEffect(() => {
+    onAuthStateChanged(
+      firebaseAuth,
+      (user) => {
+        if (user) {
+          setUser(user);
+        } else {
+          setUser(null);
+        }
+      },
+      []
+    );
+  });
 
   const registerWithEmailAndPassword = async (email, password) => {
     try {
@@ -64,22 +81,46 @@ export const FirebaseProvider = (props) => {
   
 
   const signInUser = async (email, password) => {
-    // if (!email || !password) {
-    //   alert("Email and password must be provided.");
-    //   return;
-    // }
+    if (!email || !password) {
+      console.error("Email and password must be provided.");
+      return;
+    }
+  
     try {
-      return await signInWithEmailAndPassword(firebaseAuth, email, password);
+      // Ensure the password is updated and user is reauthenticated
+      const signInResult = await signInWithEmailAndPassword(firebaseAuth, email, password);
+      console.log("User signed in successfully:", signInResult.user);
+      return signInResult;
     } catch (error) {
-      if (error.code === "auth/wrong-password") {
-        console.error("Incorrect password.");
-      } else if (error.code === "auth/user-not-found") {
-        console.error("No user found with this email.");
-      } else {
-        console.error("Error signing in:", error.message);
+      switch (error.code) {
+        case "auth/wrong-password":
+          console.error("Incorrect password.");
+          break;
+        case "auth/user-not-found":
+          console.error("No user found with this email.");
+          break;
+        case "auth/invalid-credential":
+          console.error("Invalid credentials provided.");
+          break;
+        case "auth/network-request-failed":
+          console.error("Network error. Please check your internet connection.");
+          break;
+        default:
+          console.error("Error signing in:", error.message);
       }
     }
   };
+
+  const sendPasswordResetEmail = async (email) => {
+    try {
+      await firebaseSendPasswordResetEmail(firebaseAuth, email);
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      throw error;
+    }
+  };
+  
+  
 
   const signInWithGoogle = async () => {
     try {
@@ -106,20 +147,40 @@ export const FirebaseProvider = (props) => {
     }
   };
 
-  useEffect(() => {
-    onAuthStateChanged(
-      firebaseAuth,
-      (user) => {
-        if (user) {
-          setUser(user);
-        } else {
-          setUser(null);
-        }
-      },
-      []
-    );
-  });
 
+  const reauthenticateUser = async (user, credential) => {
+    try {
+      await reauthenticateWithCredential(user, credential);
+      console.log("User reauthenticated successfully.");
+    } catch (error) {
+      console.error("Error re-authenticating user:", error);
+    }
+  };
+  
+  const updateUserPassword = async (newPassword) => {
+    const user = firebaseAuth.currentUser; // Get the currently signed-in user
+  
+    if (!user) {
+      throw new Error("No user is currently signed in.");
+    }
+  
+    if (!newPassword || newPassword.length < 6) {
+      throw new Error("Password must be at least 6 characters long.");
+    }
+  
+    try {
+      await updatePassword(user, newPassword);
+      console.log("Password updated successfully.");
+  
+      // Re-authenticate the user
+      const credential = EmailAuthProvider.credential(user.email, newPassword);
+      await reauthenticateUser(user, credential);
+    } catch (error) {
+      console.error("Error updating password:", error);
+      throw error; // Rethrow the error to handle it in the calling function
+    }
+  };
+  
   const isLoggedIn = user ? true : false;
 
   const createListing = async (name, isbnNumber, price, coverPic) => {
@@ -267,6 +328,8 @@ export const FirebaseProvider = (props) => {
         getMyOrders,
         user,
         getSignInMethodsForEmail,
+        updateUserPassword,
+        sendPasswordResetEmail
       }}
     >
       {props.children}

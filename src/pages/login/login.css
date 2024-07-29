@@ -75,11 +75,12 @@
   margin-top: 10px;
 }
 
-.link-login {
+.link-signup {
   position: absolute;
-  margin-left: 90px;
+  margin-left: 110px;
   top: 490px;
   text-decoration: none;
+  font-size: 20px;
 }
 .link-login:hover {
   color: blue;
@@ -90,6 +91,7 @@
   color: white;
   border-radius: 10px;
   margin-left: 40px;
+  margin-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
