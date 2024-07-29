@@ -25,6 +25,13 @@
     object-fit: cover;
 
   }
+  @media (max-width: 360px) and (max-height: 740px){
+    .logout-message{
+      font-size: 25px;
+      margin-top: 270px;
+      margin-left: 10px;
+    }
+  }
   
   .form-wrapper {
     display: flex;

@@ -15,6 +15,47 @@
   box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
+@media (max-width: 360px) and (max-height: 740px) {
+  .login-box {
+    width: 500px;
+    height: 400px;
+    position: relative;
+
+  }
+  .form-title{
+    font-size: 25px;
+  }
+  .email-login-name {
+    margin-right: 40px;
+   
+  }
+  .password-login-name{
+    margin-right: 85px;
+  }
+  .form-input{
+    height: 25px;
+  }
+  .submit-button{
+    height: 35px;
+    text-indent: -9px;
+
+  }
+  .no-account{
+    margin-right: 55px;
+    font-size: 12px;
+  }
+  .link-signup{
+    position: absolute;
+    margin-top: -200px;
+  }
+  .link-signup:hover{
+    color:  red;
+  }
+  .google-login-btn{
+    font-size: 15px;
+    margin-right: 40px;
+  }
+}
 
 .form-wrapper {
   display: flex;
@@ -82,7 +123,7 @@
   text-decoration: none;
   font-size: 20px;
 }
-.link-login:hover {
+.link-signup:hover {
   color: blue;
 }
 

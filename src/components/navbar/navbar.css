@@ -12,6 +12,17 @@
     font-size: 30px;
     font-weight: 700;
 }
+@media (max-width: 360px) and (max-height: 740px){
+    .home-link{
+        font-size: 20px;
+    }
+   .list-link{
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 500;
+   }
+
+}
 .home-link:hover{
     color: blue;
 }

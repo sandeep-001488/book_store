@@ -38,12 +38,11 @@ const SetPasswordForGoogleLogin = () => {
   return (
     <div className="google-redirect-container">
       <p>
-        {" "}
         <span className="text">Set Password</span> for future reference or move
         to <span className="text"> Main Page</span> directly
       </p>
       <div className="send-email-emoji">
-        <img src="/think.jpeg" alt="" />
+        <img src="/think.jpeg" alt="" className="person" />
         <button onClick={handleSendPasswordEmail} className="send-email">
           Send Email to Set Password
           <span>

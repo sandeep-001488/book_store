@@ -5,6 +5,12 @@
     margin-left: 300px;
 
 }
+@media (max-width: 360px) and (max-height: 740px) {
+    .logout-message{
+        margin-left: 20px;
+        font-weight: 700;
+    }
+}
 .home {
     font-family: Arial, sans-serif;
     

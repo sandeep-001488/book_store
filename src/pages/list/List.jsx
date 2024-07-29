@@ -41,7 +41,7 @@ function List() {
     return () => unsubscribe();
   }, [navigate]);
   
-  if (user === null) return <p className="logout-message">U will be shown a form to add items in ur library</p>;
+  if (user === null) return <p className="logout-message">U will be shown a form to add items in ur library...</p>;
 
   return (
     <div className="list-container">

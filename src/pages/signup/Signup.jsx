@@ -269,7 +269,7 @@ const Signup = () => {
               Sign Up
             </button>
           </form>
-          <p className="no-account">Have an account?</p>
+          <p className="no-account-signup">Have an account?</p>
           <Link to="/login" className="link-login">
             Login
           </Link>

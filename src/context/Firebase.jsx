@@ -89,7 +89,6 @@ export const FirebaseProvider = (props) => {
     try {
       // Ensure the password is updated and user is reauthenticated
       const signInResult = await signInWithEmailAndPassword(firebaseAuth, email, password);
-      console.log("User signed in successfully:", signInResult.user);
       return signInResult;
     } catch (error) {
       switch (error.code) {
@@ -151,7 +150,6 @@ export const FirebaseProvider = (props) => {
   const reauthenticateUser = async (user, credential) => {
     try {
       await reauthenticateWithCredential(user, credential);
-      console.log("User reauthenticated successfully.");
     } catch (error) {
       console.error("Error re-authenticating user:", error);
     }
@@ -170,7 +168,6 @@ export const FirebaseProvider = (props) => {
   
     try {
       await updatePassword(user, newPassword);
-      console.log("Password updated successfully.");
   
       // Re-authenticate the user
       const credential = EmailAuthProvider.credential(user.email, newPassword);
