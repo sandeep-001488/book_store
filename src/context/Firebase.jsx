@@ -11,6 +11,7 @@ import {
   signInWithPopup,
   updatePassword,
 } from "firebase/auth";
+import { getMessaging } from "firebase/messaging";
 import {
   Firestore,
   getFirestore,
@@ -42,6 +43,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(app);
+export const myMessaging=getMessaging(app)
 const database = getDatabase(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app);

@@ -13,6 +13,7 @@ function Message() {
       <button onClick={()=>navigate('/')} className="order-again">Buy More</button>
       <button className="view-order-btn" onClick={()=>navigate('/book/orders')}>View Ur Order</button>
     </div>
+    
     </>
   )
 }
