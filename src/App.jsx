@@ -26,8 +26,11 @@ function App() {
     const storedUser = localStorage.getItem("loginUser");
     if (storedUser) {
       setLoggedInUser(JSON.parse(storedUser));
+      console.log(storedUser);
+      
     }
   }, []);
+  
   return (
     <BrowserRouter>
       <div className="App">
