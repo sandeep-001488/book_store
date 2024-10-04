@@ -69,7 +69,7 @@ const Login = () => {
         }
         // changed here to localstorage
           localStorage.setItem("loginUser", JSON.stringify(user));
-          
+
         navigate("/");
         localStorage.removeItem("tempPassword");
       } else {
@@ -90,8 +90,9 @@ const Login = () => {
 
         if (signInMethods.length === 0) {
           navigate(`/google/set-password?email=${encodeURIComponent(user.email)}`);
+          localStorage.setItem("loginUser", JSON.stringify(user));
         } else {
-          navigate("/");
+          navigate("/login");
         }
       }
     } catch (error) {
