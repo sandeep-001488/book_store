@@ -1,10 +1,12 @@
 import React, { Suspense } from "react";
-import {useEffect,useState} from 'react'
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Routes, Route,Navigate} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import NavbarTop from "./components/navbar/Navbar";
+import { onAuthStateChanged } from "firebase/auth";
+import { firebaseAuth } from "./context/Firebase";
 
 // Lazy-loaded components
 const Home = React.lazy(() => import("./pages/home/Home"));
@@ -18,19 +20,32 @@ const SetPasswordForGoogle = React.lazy(() =>
   import("./pages/setPasswordForGoogleLogin/SetPasswordForGoogleLogin")
 );
 function App() {
-  // changed here
-  const [loggedInUser,setLoggedInUser] = useState(null);
+  // // changed here
+  // const [loggedInUser,setLoggedInUser] = useState(null);
 
+  // useEffect(() => {
+  //   // Check if a user is stored in localStorage when the app loads
+  //   const storedUser = localStorage.getItem("loginUser");
+  //   if (storedUser) {
+  //     setLoggedInUser(JSON.parse(storedUser));
+  //     console.log(storedUser);
+
+  //   }
+  // }, []);
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    // Check if a user is stored in localStorage when the app loads
-    const storedUser = localStorage.getItem("loginUser");
-    if (storedUser) {
-      setLoggedInUser(JSON.parse(storedUser));
-      console.log(storedUser);
-      
-    }
+    const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, []);
-  
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -41,7 +56,7 @@ function App() {
               {/* <Route path="/" element={<Home />} /> */}
               <Route
                 path="/"
-                element={loggedInUser ? <Home /> : <Navigate to="/login" />}
+                element={user ? <Home /> : <Navigate to="/login" />}
               />
               <Route path="/register" element={<Signup />} />
               <Route path="/login" element={<Login />} />
