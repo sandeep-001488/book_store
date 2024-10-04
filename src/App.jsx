@@ -19,7 +19,7 @@ const SetPasswordForGoogle = React.lazy(() =>
 );
 function App() {
   // changed here
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [loggedInUser,setLoggedInUser] = useState(null);
 
   useEffect(() => {
     // Check if a user is stored in localStorage when the app loads
